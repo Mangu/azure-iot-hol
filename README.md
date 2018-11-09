@@ -6,7 +6,7 @@ This hands-on lab demonstrates what is involved in connecting a physical custom 
 
 ### Modules
 
-* [Module 1 - Connect a device to IoT Hub](Module1)
-* [Module 2 - Create a real time dashboard](Module2)
-* [Module 3 - Gain real time insights](Module3)
-* [Module 4 - IoT Central (Bonus Module)](Module4)
+* [Module 1 - Connect a device to IoT Hub](/module1)
+* [Module 2 - Create a real time dashboard](/module2)
+* [Module 3 - Gain real time insights](/module3)
+* [Module 4 - IoT Central (Bonus Module)](/module4)
