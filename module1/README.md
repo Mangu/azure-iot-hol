@@ -60,4 +60,3 @@ In the sketch, hange the following variables:
 
 * To monitor the messages sent to IoT Hub, from the Cloud Shell type `az iot hub monitor-events  -n {hubname}` where {hubname} is th the name of your IoT Hub
 
-## Connect a device using the IoT Hub client SDK
