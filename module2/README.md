@@ -30,7 +30,7 @@ To develop Azure Functions locally, you need to install the  [Azure Functions Co
 
 We need to provide a mechanism for the client to obtain the proper credentials to connect to SignalR Service. For this walkthrough, I am leaving the function with anonymous access. In a production scenario, we can secure it  OAuth or something else. 
 
-1. Run `func new` to create a new function and name it "negotiate". When prompted for a language, select JavaScript.
+1. Run `func new` to create a new function and name it "negotiate". When prompted for a language, select Node / JavaScript. When prompted for a template select HTTPTrigger
    
 2. We will use the `SignalRConnectionInfo` input binding to obtain the connection. Open function.json and replace the content with:
 
@@ -75,7 +75,7 @@ module.exports = function (context, req, connectionInfo) {
                         'Content-Type': 'application/json' };
                         
     context.done();
-  };
+  };````
 
 ### 2.3 Dispacher
 
