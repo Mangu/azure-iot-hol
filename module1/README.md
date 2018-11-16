@@ -33,7 +33,7 @@ While you are in the Azure portal, let's go ahead and grab a couple of important
 
 One of the ways to connect a device to IoT Hub is using a MQTT client. We are going to use the same sketch we used earlier and only change the MQTT server connection information.
 
-In the sketch, hange the following variables:   
+In the sketch, change the following variables:   
 
 1. For the **ClientId** field, use the **deviceId**.
 

@@ -45,7 +45,9 @@ In this section, we will go back to our Azure Stream Analytics (ASA) job and ‘
 
 1.	In the Azure Portal, on the left hand nav, click on “Stream Analytics Jobs” and then open the job you created above
 2.	On the blade for your ASA job, click “Outputs” and then click “+ Add” to add an output
-3.	On the “New Output” blade, name it **azfunction**. NEED TO ADD FUNCTION DETAILS
+3.	On the “New Output” blade, name it **azfunction**. 
+
+>Note: We need to be able to deploy the Azure Functions to Azure for the ASA output to work. We will do this as a guide sessions.
 
 
 4.	Accept the rest of the defaults and hit ‘Create’.  Wait until the output is created to move to the next step.
@@ -72,3 +74,4 @@ Stream Analytics will read the events as they stream in from the device and exec
                         
 4. Click on the button to store the query.
 5. We are done with the Stream Analytics job, but we will not start it running until we have our Azure Function in place to process the events.
+
