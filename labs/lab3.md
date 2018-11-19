@@ -1,4 +1,4 @@
-## Module 2 - Create a real time dashboard
+## Lab 3 - Create a real time dashboard
 
 A typical scenario in IoT solutions is to deliver real-time notifications to subscribing parties. In Azure, there are various ways to achieve real-time delivery of notifications. The following is a walkthrough of using Azure Functions to process messages from IoT device and Azure SignalR Service to deliver the notifications via Websockets. Lastly, we will use simple HTML client to display the notifications
 

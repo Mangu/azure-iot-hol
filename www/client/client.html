@@ -35,12 +35,15 @@
     </nav>
 
     <main role="main" class="container">
+      
+       
+      <div class="row"><h4></h4></div> 
       <div class="row"><h4>HOURLY SCORE</h4></div> 
       <div class="row">
         <div class="col-md-2">
             <div class="card">
               <div class="card-block">
-                <h6 class="card-title">Devices</h6>
+                <p class="card-title">Connected</p>
                 <h2 id="value1" class="card-text">0</h2>             
               </div>
             </div>
@@ -79,22 +82,25 @@
             </div>
         </div>
     </div>
-    <hr>
+    
     <div class="row"><hr/></div> 
     <div class="row"><h4>VOTES</h4></div> 
+    <div class="row">
+        <canvas id="chart" height="100"></canvas>
+    </div>
     <div class="row"> 
         <table id="eventlog" class="table table-striped">
                 <thead class="thead-light">
                   <tr>
                     <th scope="col">Time Stamp</th>
-                    <th scope="col">Device</th>
+                    <th scope="col">Location</th>
                     <th scope="col">Vote</th>
                     <th scope="col">Humidity</th>
                     <th scope="col">Temperature</th>                    
                   </tr>
                 </thead>
         </table>              
-        <ul id="updates"></ul>
+        
     </div>
 
     </main><!-- /.container -->
@@ -110,81 +116,10 @@
 
     <script src="https://unpkg.com/@aspnet/signalr@1.0.0-rc1-final/dist/browser/signalr.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="chart.js"></script>
+    <script src="signalr.js"></script>
+
     
-    <script>
-      //const apiBaseUrl = 'https://iot-signalr.azurewebsites.net';
-      const apiBaseUrl = 'https://iot-signalr.azurewebsites.net';
-      const hubName = 'notify';
-  
-      getConnectionInfo().then(info => {  
-        let username="user";
-        while (!username && username !== null) {
-          username = prompt('Enter a username');
-        }
-        
-        if (username === null) return;
-        document.body.classList.add('ready');  
-        
-        const value1 = document.getElementById('value1');
-        const value2 = document.getElementById('value2');
-        const value3 = document.getElementById('value3');
-        const value4 = document.getElementById('value4');
-        const value5 = document.getElementById('value5');       
-
-        const updates = document.getElementById('updates');
-        const eventlog = document.getElementById('eventlog');
-        const maxLogs = 20;
-
-        const options = {
-          accessTokenFactory: () => info.accessToken
-        };
-      
-        const connection = new signalR.HubConnectionBuilder()
-          .withUrl(info.url, options)
-          .configureLogging(signalR.LogLevel.Information)
-          .build();
-  
-        connection.on('newMessage', (message) => {
-            let msg = message;                                   
-            var row = eventlog.insertRow(1);
-            var ts = new Date();
-               
-            row.insertCell(0).innerText =  ts.toLocaleTimeString();
-            row.insertCell(1).innerText =  msg[0].device;
-            row.insertCell(2).innerText =  msg[0].vote;            
-            row.insertCell(3).innerText =  Math.round(msg[0].humidity);
-            row.insertCell(4).innerText =  Math.round(msg[0].temperature);
-            
-             if(eventlog.rows.length > maxLogs)
-                eventlog.deleteRow(maxLogs)          
-        });
-
-        connection.on('newCalculation', (message) => {
-            let msg = message;
-
-            console.log(JSON.stringify(message));
-            
-            value1.innerText = msg[0].devices.toString();
-            value2.innerText = Math.round(msg[0].count);
-            value3.innerText = (Math.round(msg[0].sum) / Math.round(msg[0].count)).toFixed(2);
-            value4.innerText = Math.round(msg[0].temperature);
-            value5.innerText = Math.round(msg[0].humidity); 
-            
-        });        
-       
-        connection.onclose(() => console.log('disconnected'));
-  
-        console.log('connecting...');
-        connection.start()
-          .then(() => console.log('connected!'))
-          .catch(console.error);
-        
-      }).catch(alert);
-  
-      function getConnectionInfo() {
-        return axios.post(`${apiBaseUrl}/api/negotiate`)
-          .then(resp => resp.data);
-      }     
-    </script>
   </body>
 </html>

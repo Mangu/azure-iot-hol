@@ -1,4 +1,4 @@
-## Module 3 - Gain real time insights
+## Lab 4 - Gain real time insights
 
 
 ### Introduction
@@ -63,6 +63,7 @@ Stream Analytics will read the events as they stream in from the device and exec
 ![Stream Analytics Query](/images/m3ASAQuery.png)
 
 3. For our query, we will calculate the number of votes received, number of unique devices, vote score, average temperature & humidity
+   
    `
     SELECT Avg(temperature) as temperature, Avg(humidity) as humidity, Sum(vote) as sum,  Count(*) as [count], COUNT(DISTINCT device) as Devices
     INTO azfunction
@@ -71,4 +72,4 @@ Stream Analytics will read the events as they stream in from the device and exec
     `                        
 4. Click on the button to store the query.
 5. We are done with the Stream Analytics job. From the Overview panel, click start.
-6. Back on the client.html file, change the apibaseurl to point to your new Azure Function (in the cloud)
+6. In the www folder, open signalr.js and change **apiBaseUrl** to point to your new Azure Function (in the cloud)

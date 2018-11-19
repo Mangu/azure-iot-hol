@@ -1,4 +1,4 @@
-## Module 4 - Communicating with the device
+## Module 5 - Communicating with the device
 
 Another common pattern in IoT is to execute commands remotely on a device. Since our devices are connected via IoT Hub, we will let IoT Hub handle the communication to the device.
 
@@ -19,8 +19,9 @@ We are going to add and additional query to the ASA job we created in the last l
     INTO azfunctionc2d
     FROM devices TIMESTAMP BY EventEnqueuedUtcTime
     GROUP BY SlidingWindow(minute,60), device
-    HAVING score < .7
+    HAVING score < .7 
+    `
 
 2. Create another Azure Function output. Name it **azfunctionc2d** and point it to the **cloud2device** function.
 3. Start the job and test the feature by pressing the "bad" button several times. The LED should turn on
-    `
+    

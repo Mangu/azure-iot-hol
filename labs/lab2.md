@@ -1,4 +1,4 @@
-## Module 2 - Connect a device to IoT Hub
+## Lab 2 - Connect a device to IoT Hub
 
 ## 1. Create an IoT Hub
 
