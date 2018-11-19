@@ -1,0 +1,19 @@
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "eventHubMessage",
+      "direction": "in",
+      "eventHubName": "diazhub",
+      "cardinality": "one",
+      "connection": "myEventHubReadConnectionAppSetting"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRMessages",
+      "hubName": "notify",
+      "direction": "out"
+    }
+  ]
+}
