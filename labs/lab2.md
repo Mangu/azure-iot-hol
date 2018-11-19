@@ -28,9 +28,9 @@ While you are in the Azure portal, let's go ahead and grab a couple of important
 
 ## 3. Connect a device using an MQTT client
 
-One of the ways to connect a device to IoT Hub is using a MQTT client. We are going to use the device we created in module 1 but we have an updated sketch that includes the MQTT code.
+One of the ways to connect a device to IoT Hub is using a MQTT client. We are going to use the device we created in lab 1 but we have an updated sketch that includes the MQTT code.
 
-In the sketch provided in this module, change the following variables:
+In the sketch provided **Feedbox.ino**, change the following variables:
 
 1. For the **ClientId** field, use the **deviceId**. This is a case sensitive value.
 2. For **Server** use your `{iothubhostname}`
